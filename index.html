@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./assets/logo-book.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bookshelf</title>
+
+    <!-- Impor script kamu di sini -->
+    <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header class="title-container">
+      <img src="assets/logo-book.svg" alt="Bookshelf logo" class="logo" />
+      <h1>Bookshelf.</h1>
+    </header>
+
+    <main>
+      <section class="add-book-container">
+        <h2>Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm" data-editing-id="">
+          <div class="add-wrapper">
+            <div>
+              <label for="bookFormTitle">Judul</label>
+              <input
+                id="bookFormTitle"
+                type="text"
+                required
+                data-testid="bookFormTitleInput"
+                class="add-item"
+              />
+            </div>
+            <div>
+              <label for="bookFormAuthor">Penulis</label>
+              <input
+                id="bookFormAuthor"
+                type="text"
+                required
+                data-testid="bookFormAuthorInput"
+                class="add-item"
+              />
+            </div>
+            <div>
+              <label for="bookFormYear">Tahun</label>
+              <input
+                id="bookFormYear"
+                type="number"
+                required
+                data-testid="bookFormYearInput"
+                class="add-item"
+              />
+            </div>
+          </div>
+          <div class="check-container">
+            <label for="bookFormIsComplete" class="checkbox"
+              >Selesai dibaca</label
+            >
+            <input
+              id="bookFormIsComplete"
+              type="checkbox"
+              data-testid="bookFormIsCompleteCheckbox"
+            />
+          </div>
+          <button
+            id="bookFormSubmit"
+            type="submit"
+            data-testid="bookFormSubmitButton"
+          >
+            Tambah Buku
+          </button>
+        </form>
+      </section>
+
+      <section class="search-book-container">
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm">
+          <div class="search-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="search-icon"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
+            <input
+              id="searchBookTitle"
+              type="text"
+              data-testid="searchBookFormTitleInput"
+              placeholder="Ketik Judul Buku..."
+            />
+            <button
+              id="searchSubmit"
+              type="submit"
+              data-testid="searchBookFormSubmitButton"
+            >
+              Cari
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="unread-container">
+        <div class="unread-title">
+          <h2>Belum Dibaca</h2>
+        </div>
+
+        <div
+          id="incompleteBookList"
+          data-testid="incompleteBookList"
+          class="status-book"
+        >
+          <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          <div data-bookid="123123123" data-testid="bookItem">
+            <h3 data-testid="bookItemTitle">Judul Buku 1</h3>
+            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 1</p>
+            <p data-testid="bookItemYear">Tahun: 2030</p>
+            <div>
+              <button
+                data-testid="bookItemIsCompleteButton"
+                class="btn-selesai"
+              >
+                Selesai Dibaca
+              </button>
+              <button data-testid="bookItemDeleteButton" class="btn-hapus">
+                Hapus Buku
+              </button>
+              <button data-testid="bookItemEditButton" class="btn-edit">
+                Edit Buku
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Selesai dibaca</h2>
+
+        <div
+          id="completeBookList"
+          data-testid="completeBookList"
+          class="status-book"
+        >
+          <!-- 
+            Ini adalah struktur HTML untuk masing-masing buku.
+            Pastikan susunan elemen beserta atribut data-testid menyesuaikan seperti contoh ini.
+          -->
+          <div data-bookid="456456456" data-testid="bookItem">
+            <h3 data-testid="bookItemTitle">Judul Buku 2</h3>
+            <p data-testid="bookItemAuthor">Penulis: Penulis Buku 2</p>
+            <p data-testid="bookItemYear">Tahun: 2030</p>
+            <div>
+              <button
+                data-testid="bookItemIsCompleteButton"
+                class="btn-selesai"
+              >
+                Belum Dibaca
+              </button>
+              <button data-testid="bookItemDeleteButton" class="btn-hapus">
+                Hapus Buku
+              </button>
+              <button data-testid="bookItemEditButton" class="btn-edit">
+                Edit Buku
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

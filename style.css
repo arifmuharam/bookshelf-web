@@ -1,0 +1,187 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", serif;
+    margin-left: 60px;
+}
+
+.title-container {
+    display: flex;
+    gap: 10px;
+}
+
+.title-container h1 {
+    font-size: 60px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding-left: 50px;
+    width: 500px;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    background-color: #f3f3f3;
+    padding-block: 25px;
+    font-family: "Inter", serif;
+    border-radius: 8px;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;    
+}
+
+#searchSubmit {
+    padding: 13px;
+    border-radius: 8px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.add-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#bookFormTitle, #bookFormAuthor, #bookFormYear {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.check-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkbox {
+    margin: 0;
+    font-size: 14px;
+}
+
+#bookFormSubmit {
+    padding: 13px;
+    border-radius: 8px;
+    background-color: rgb(20, 92, 185);
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.btn-selesai {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(11, 143, 18);
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 14px;
+}
+
+.btn-hapus {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(179, 12, 12);
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 14px;
+}
+
+.btn-edit {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgb(182, 122, 11);
+    color: white;
+    font-family: "Inter", serif;
+    font-size: 14px;
+}
+
+.book-item {
+    width: fit-content;
+    border: 1px solid #bdbdbd;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px; 
+}
+
+.status-book {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-left: 8px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .title-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title-container h1 {
+       font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .add-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .add-item {
+        width: 100%;
+    }
+
+    #bookFormTitle, #bookFormAuthor, #bookFormYear {
+        padding-block: 12px;
+    }
+
+    .search-container input {
+        padding-block: 25px;
+    }
+
+    #bookFormSubmit, #searchSubmit {
+        font-size: 14px;
+    }
+
+    .status-book {
+        justify-content: center;
+    }
+}
